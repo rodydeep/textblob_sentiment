@@ -11,7 +11,7 @@ with st.expander('klasifikasi Text'):
         blob = TextBlob(text)
         st.write('Polarity: ', round(blob.sentiment.polarity,2))
         st.write('Subjectivity: ', round(blob.sentiment.subjectivity,2))
-       text.aply(analyze)
+       
 with st.expander('Analisis masal data'):
     upl = st.file_uploader('Upload file')
 
