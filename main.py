@@ -5,14 +5,14 @@ import cleantext
 
 
 st.header('Sentiment Analysis')
-with st.expander('Analyze Text'):
+with st.expander('klasifikasi Text'):
     text = st.text_input('Text here: ')
     if text:
         blob = TextBlob(text)
         st.write('Polarity: ', round(blob.sentiment.polarity,2))
         st.write('Subjectivity: ', round(blob.sentiment.subjectivity,2))
-
-with st.expander('Analyze CSV'):
+       text.aply(analyze)
+with st.expander('Analisis masal data'):
     upl = st.file_uploader('Upload file')
 
     def score(x):
