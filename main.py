@@ -33,7 +33,7 @@ with st.expander('Analisis masal data'):
         df = pd.read_excel(upl)
         del df['Unnamed: 0']
         df['score'] = df['Content'].apply(score)
-        df['analysis'] = df['score'].apply(analyze)
+        df['sentimen'] = df['score'].apply(analyze)
         st.write(df.head(10))
 
         @st.cache
@@ -50,5 +50,13 @@ with st.expander('Analisis masal data'):
             mime='text/csv',
         )
 
+    if st.button("Predict"):
+      # Plot the prediction results
+      count = df['sentimen'].value_counts()
+      plt.figure(figsize=(10, 6))
+      plt.bar(['Positive', 'Netral', 'Negative'], count, color=['royalblue','green', 'orange'])
+      plt.xlabel('Jenis Sentimen', size=14)
+      plt.ylabel('Frekuensi', size=14)
+      st.pyplot()
 
 
